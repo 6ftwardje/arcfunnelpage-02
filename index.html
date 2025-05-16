@@ -53,7 +53,7 @@
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
         <div class="relative z-10 text-center max-w-2xl mx-auto animate-fadeInUp">
           <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Bereik meer met <span class="text-white/90">ARC</span></h1>
-          <p class="text-lg md:text-2xl text-white/80 mb-8">De agency voor ondernemers die willen groeien met Meta (Instagram/Facebook) advertenties.</p>
+          <p class="text-lg md:text-2xl text-white/80 mb-8">Als je verhaal zo sterk is… waarom ziet bijna niemand het dan?</p>
           <a href="#contact" class="inline-block px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Plan een kennismaking</a>
         </div>
       </section>
@@ -81,173 +81,174 @@
         </div>
       </section>
 
-      <!-- Pakketten -->
-      <section class="w-full bg-black relative overflow-hidden">
-        <div class="light-effect absolute inset-0 pointer-events-none"></div>
-        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp relative z-10" x-data="packageSelector">
-          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Onze pakketten</h2>
-          <p class="text-white/80 text-center mb-10">Duid het pakket aan die bij jouw past</p>
-          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Paid Ads Pakket -->
-            <div id="paid-ads" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option active" data-package="paid-ads" @click="updateActivePackage('paid-ads')">
-              <h3 class="text-xl font-bold mb-4">Paid Ads Pakket</h3>
-              <ul class="package-list space-y-2">
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Voor bedrijven die al actief zijn op social media</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je wil meer resultaat uit je huidige bereik</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je hebt geen tijd of kennis voor advertenties</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je wil ontzorgd worden in targeting, visuals en optimalisatie</span>
-                </li>
-              </ul>
-            </div>
-            <!-- Full Package -->
-            <div id="full-package" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option" data-package="full-package" @click="updateActivePackage('full-package')">
-              <h3 class="text-xl font-bold mb-4">Full Package</h3>
-              <ul class="package-list space-y-2">
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Voor bedrijven die (bijna) geen online zichtbaarheid hebben</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je wil een sterke aanwezigheid op social media</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je zoekt consistente, professionele content</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je wil advertenties én content die naadloos samenwerken</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                  <span>Je wil top-of-mind blijven bij je doelgroep</span>
-                </li>
-              </ul>
+      <!-- Pakketten + Resultaten samen in Alpine.js scope -->
+      <div x-data="packageSelector">
+        <!-- Pakketten -->
+        <section class="w-full bg-black relative overflow-hidden">
+          <div class="light-effect absolute inset-0 pointer-events-none"></div>
+          <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp relative z-10">
+            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Onze pakketten</h2>
+            <p class="text-white/80 text-center mb-10">Duid het pakket aan die bij jouw past</p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <!-- Paid Ads Pakket -->
+              <div id="paid-ads" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option active" data-package="paid-ads" @click="updateActivePackage('paid-ads')">
+                <h3 class="text-xl font-bold mb-4">Paid Ads Pakket</h3>
+                <ul class="package-list space-y-2">
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Voor bedrijven die al actief zijn op social media</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je wil meer resultaat uit je huidige bereik</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je hebt geen tijd of kennis voor advertenties</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je wil ontzorgd worden in targeting, visuals en optimalisatie</span>
+                  </li>
+                </ul>
+              </div>
+              <!-- Full Package -->
+              <div id="full-package" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option" data-package="full-package" @click="updateActivePackage('full-package')">
+                <h3 class="text-xl font-bold mb-4">Full Package</h3>
+                <ul class="package-list space-y-2">
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Voor bedrijven die (bijna) geen online zichtbaarheid hebben</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je wil een sterke aanwezigheid op social media</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je zoekt consistente, professionele content</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je wil advertenties én content die naadloos samenwerken</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    <span>Je wil top-of-mind blijven bij je doelgroep</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <!-- Resultaten -->
+        <section class="w-full bg-neutral-900">
+          <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
+            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10" x-text="'Resultaten die je kunt verwachten met de ' + (activePackage === 'paid-ads' ? 'Paid Ads Pakket' : 'Full Package')"></h2>
+            <div class="max-w-4xl mx-auto">
+              <!-- Paid Ads Results -->
+              <div id="paid-ads-results" class="results-content active">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">🎯</span>
+                      <p class="text-white/90">Professionele advertenties zonder zorgen</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">🧠</span>
+                      <p class="text-white/90">Strategie & creatie perfect afgestemd op je doelgroep</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">⏱️</span>
+                      <p class="text-white/90">Gemiddeld 30+ uur/maand uitgespaard aan marketingtaken</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">📈</span>
+                      <p class="text-white/90">Meer bereik via slimme optimalisatie van Meta campagnes</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Full Package Results -->
+              <div id="full-package-results" class="results-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">✅</span>
+                      <p class="text-white/90">Alles uit het Paid Ads Pakket</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">🧲</span>
+                      <p class="text-white/90">Consistente social media posts voor top-of-mind merkherkenning</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">🧵</span>
+                      <p class="text-white/90">Volledige contentkalender & paginabeheer – geen stress meer</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">🔁</span>
+                      <p class="text-white/90">Ads & content worden slim gerepürposed over alle kanalen</p>
+                    </div>
+                  </div>
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 md:col-span-2">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl">🧑‍💼</span>
+                      <p class="text-white/90">Meer sollicitaties & leads dankzij een sterke, constante online aanwezigheid</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <!-- Resultaten -->
-      <section class="w-full bg-neutral-900">
-        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Resultaten die je kunt verwachten</h2>
-          <p class="text-white/80 text-center mb-10" x-text="activePackage === 'paid-ads' ? 'met het Paid Ads Pakket' : 'met het Full Package'"></p>
-          <div class="max-w-4xl mx-auto">
-            <!-- Paid Ads Results -->
-            <div id="paid-ads-results" class="results-content active">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">🎯</span>
-                    <p class="text-white/90">Professionele advertenties zonder zorgen</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">🧠</span>
-                    <p class="text-white/90">Strategie & creatie perfect afgestemd op je doelgroep</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">⏱️</span>
-                    <p class="text-white/90">Gemiddeld 30+ uur/maand uitgespaard aan marketingtaken</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">📈</span>
-                    <p class="text-white/90">Meer bereik via slimme optimalisatie van Meta campagnes</p>
-                  </div>
+        <!-- Contact & Calendly Section -->
+        <section id="call" class="w-full bg-black">
+          <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+              <!-- Calendly CTA -->
+              <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 flex flex-col items-center gap-6 text-center backdrop-blur-md mb-8 md:mb-0">
+                <img src="assets/profilepic.jpg" alt="Ward Janssen" class="w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-white/10 shadow mb-2" />
+                <h2 class="text-2xl font-semibold mb-2">Plan een kennismaking met Ward</h2>
+                <p class="text-white/80 mb-4">Geen verplichtingen, gewoon een goed gesprek.</p>
+                <div class="w-full">
+                  <iframe src="https://calendly.com/wardjanssen/kennismaking?hide_gdpr_banner=1" width="100%" height="400" frameborder="0" class="rounded-xl w-full" style="min-width:320px;" title="Plan een kennismaking"></iframe>
                 </div>
               </div>
+              <!-- Contactformulier -->
+              <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4 text-center">Contact</h2>
+                <form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('modal').classList.remove('hidden');">
+                  <input type="text" name="naam" placeholder="Naam" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
+                  <input type="email" name="email" placeholder="E-mail" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
+                  <textarea name="bericht" placeholder="Bericht" rows="4" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"></textarea>
+                  <button type="submit" class="w-full px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Verstuur</button>
+                </form>
+              </div>
             </div>
-            <!-- Full Package Results -->
-            <div id="full-package-results" class="results-content hidden">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">✅</span>
-                    <p class="text-white/90">Alles uit het Paid Ads Pakket</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">🧲</span>
-                    <p class="text-white/90">Consistente social media posts voor top-of-mind merkherkenning</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">🧵</span>
-                    <p class="text-white/90">Volledige contentkalender & paginabeheer – geen stress meer</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">🔁</span>
-                    <p class="text-white/90">Ads & content worden slim gerepürposed over alle kanalen</p>
-                  </div>
-                </div>
-                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 md:col-span-2">
-                  <div class="flex items-start gap-3">
-                    <span class="text-2xl">🧑‍💼</span>
-                    <p class="text-white/90">Meer sollicitaties & leads dankzij een sterke, constante online aanwezigheid</p>
-                  </div>
-                </div>
+            <!-- Modal -->
+            <div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+              <div class="bg-white/10 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 text-center max-w-sm mx-auto animate-fadeInUp">
+                <h3 class="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
+                <p class="text-white/80 mb-4">We nemen zo snel mogelijk contact met je op.</p>
+                <button onclick="document.getElementById('modal').classList.add('hidden');" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Sluiten</button>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Contact & Calendly Section -->
-      <section id="call" class="w-full bg-black">
-        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-          <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start">
-            <!-- Calendly CTA -->
-            <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 flex flex-col items-center gap-6 text-center backdrop-blur-md mb-8 md:mb-0">
-              <img src="assets/profilepic.jpg" alt="Ward Janssen" class="w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-white/10 shadow mb-2" />
-              <h2 class="text-2xl font-semibold mb-2">Plan een kennismaking met Ward</h2>
-              <p class="text-white/80 mb-4">Geen verplichtingen, gewoon een goed gesprek.</p>
-              <div class="w-full">
-                <iframe src="https://calendly.com/wardjanssen/kennismaking?hide_gdpr_banner=1" width="100%" height="400" frameborder="0" class="rounded-xl w-full" style="min-width:320px;" title="Plan een kennismaking"></iframe>
-              </div>
-            </div>
-            <!-- Contactformulier -->
-            <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md">
-              <h2 class="text-2xl font-semibold mb-4 text-center">Contact</h2>
-              <form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('modal').classList.remove('hidden');">
-                <input type="text" name="naam" placeholder="Naam" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
-                <input type="email" name="email" placeholder="E-mail" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
-                <textarea name="bericht" placeholder="Bericht" rows="4" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"></textarea>
-                <button type="submit" class="w-full px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Verstuur</button>
-              </form>
-            </div>
-          </div>
-          <!-- Modal -->
-          <div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
-            <div class="bg-white/10 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 text-center max-w-sm mx-auto animate-fadeInUp">
-              <h3 class="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
-              <p class="text-white/80 mb-4">We nemen zo snel mogelijk contact met je op.</p>
-              <button onclick="document.getElementById('modal').classList.add('hidden');" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Sluiten</button>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
 
     <!-- Footer -->
