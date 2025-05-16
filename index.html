@@ -89,20 +89,50 @@
           <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <!-- Paid Ads Pakket -->
             <div id="paid-ads" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option active" data-package="paid-ads" @click="updateActivePackage('paid-ads')">
-              <h3 class="text-xl font-bold mb-2">Paid Ads Pakket</h3>
-              <ul class="mb-4 space-y-1 package-list">
-                <li>✔️ Volledige advertentie set-up</li>
-                <li>✔️ Maandelijkse optimalisatie</li>
-                <li>✔️ Rapportage & advies</li>
+              <h3 class="text-xl font-bold mb-4">Paid Ads Pakket</h3>
+              <ul class="package-list space-y-2">
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Voor bedrijven die al actief zijn op social media</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je wil meer resultaat uit je huidige bereik</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je hebt geen tijd of kennis voor advertenties</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je wil ontzorgd worden in targeting, visuals en optimalisatie</span>
+                </li>
               </ul>
             </div>
             <!-- Full Package -->
             <div id="full-package" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option" data-package="full-package" @click="updateActivePackage('full-package')">
-              <h3 class="text-xl font-bold mb-2">Full Package</h3>
-              <ul class="mb-4 space-y-1 package-list">
-                <li>✔️ Alles uit het Paid Ads Pakket</li>
-                <li>✔️ Creatie van content</li>
-                <li>✔️ Strategie & begeleiding</li>
+              <h3 class="text-xl font-bold mb-4">Full Package</h3>
+              <ul class="package-list space-y-2">
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Voor bedrijven die (bijna) geen online zichtbaarheid hebben</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je wil een sterke aanwezigheid op social media</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je zoekt consistente, professionele content</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je wil advertenties én content die naadloos samenwerken</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <img src="assets/checkmark.svg" alt="Checkmark" class="w-5 h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                  <span>Je wil top-of-mind blijven bij je doelgroep</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -251,6 +281,11 @@
                 // Update list text color
                 card.querySelector('.package-list').classList.remove('text-white/80');
                 card.querySelector('.package-list').classList.add('text-black/80');
+                // Update checkmark colors
+                card.querySelectorAll('img').forEach(img => {
+                  img.classList.remove('filter', 'brightness-0', 'invert');
+                  img.classList.add('filter', 'brightness-0');
+                });
               } else {
                 card.classList.remove('active');
                 card.classList.add('bg-white/5');
@@ -262,6 +297,11 @@
                 // Update list text color
                 card.querySelector('.package-list').classList.add('text-white/80');
                 card.querySelector('.package-list').classList.remove('text-black/80');
+                // Update checkmark colors
+                card.querySelectorAll('img').forEach(img => {
+                  img.classList.add('filter', 'brightness-0', 'invert');
+                  img.classList.remove('filter', 'brightness-0');
+                });
               }
             });
 
