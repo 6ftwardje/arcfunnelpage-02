@@ -32,121 +32,138 @@
     </style>
   </head>
   <body class="bg-black text-white font-inter">
-    <!-- Hero Section -->
-    <section class="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/hero.jpg');">
-      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-      <div class="relative z-10 text-center max-w-2xl mx-auto animate-fadeInUp">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Bereik meer met <span class="text-white/90">ARC</span></h1>
-        <p class="text-lg md:text-2xl text-white/80 mb-8">De agency voor ondernemers die willen groeien met Meta (Instagram/Facebook) advertenties.</p>
-        <a href="#contact" class="inline-block px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Plan een kennismaking</a>
-      </div>
-    </section>
-
-    <!-- Probleemstelling + Doelgroep -->
-    <section class="w-full bg-neutral-900">
-      <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-        <div class="max-w-2xl mx-auto text-center bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md hover:shadow-white/20 transition-all duration-300" style="box-shadow: 0 0 15px rgba(255,255,255,0.05);">
-          <h2 class="text-2xl md:text-3xl font-semibold mb-6">Onze aanpak is gemaakt voor ondernemers die:</h2>
-          <ul class="text-xl text-white/90 space-y-4 leading-relaxed">
-            <li class="flex items-center gap-3">
-              <img src="assets/checkmark.svg" alt="Checkmark" class="w-6 h-6 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-              <span>Sneller meer leads & bereik willen via Meta</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <img src="assets/checkmark.svg" alt="Checkmark" class="w-6 h-6 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-              <span>Geen tijd of goesting hebben om zelf te adverteren</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <img src="assets/checkmark.svg" alt="Checkmark" class="w-6 h-6 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-              <span>Resultaat willen zónder gepruts, zónder tijdverlies</span>
-            </li>
-          </ul>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
+      <div class="container mx-auto px-6 py-3">
+        <div class="flex items-center justify-between">
+          <a href="#" class="flex items-center">
+            <img src="assets/arc-white.png" alt="ARC Agency" class="h-8 w-auto" />
+          </a>
+          <a href="#call" class="inline-flex items-center px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition-all duration-300 hover:shadow-white/20 hover:scale-105 font-semibold">
+            Plan een strategie call
+          </a>
         </div>
       </div>
-    </section>
+    </nav>
 
-    <!-- Pakketten -->
-    <section class="w-full bg-black">
-      <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Onze pakketten</h2>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <!-- Paid Ads Pakket -->
-          <div class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition">
-            <h3 class="text-xl font-bold mb-2">Paid Ads Pakket</h3>
-            <ul class="mb-4 text-white/80 space-y-1">
-              <li>✔️ Volledige advertentie set-up</li>
-              <li>✔️ Maandelijkse optimalisatie</li>
-              <li>✔️ Rapportage & advies</li>
-            </ul>
-          </div>
-          <!-- Full Package -->
-          <div class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition">
-            <h3 class="text-xl font-bold mb-2">Full Package</h3>
-            <ul class="mb-4 text-white/80 space-y-1">
-              <li>✔️ Alles uit het Paid Ads Pakket</li>
-              <li>✔️ Creatie van content</li>
-              <li>✔️ Strategie & begeleiding</li>
+    <!-- Add padding to the first section to account for the fixed navbar -->
+    <div class="pt-16">
+      <!-- Hero Section -->
+      <section class="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/hero.jpg');">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative z-10 text-center max-w-2xl mx-auto animate-fadeInUp">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Bereik meer met <span class="text-white/90">ARC</span></h1>
+          <p class="text-lg md:text-2xl text-white/80 mb-8">De agency voor ondernemers die willen groeien met Meta (Instagram/Facebook) advertenties.</p>
+          <a href="#contact" class="inline-block px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Plan een kennismaking</a>
+        </div>
+      </section>
+
+      <!-- Probleemstelling + Doelgroep -->
+      <section class="w-full bg-neutral-900">
+        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
+          <div class="max-w-2xl mx-auto text-center bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md hover:shadow-white/20 transition-all duration-300" style="box-shadow: 0 0 15px rgba(255,255,255,0.05);">
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6">Onze aanpak is gemaakt voor ondernemers die:</h2>
+            <ul class="text-xl text-white/90 space-y-4 leading-relaxed">
+              <li class="flex items-center gap-3">
+                <img src="assets/checkmark.svg" alt="Checkmark" class="w-6 h-6 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                <span>Sneller meer leads & bereik willen via Meta</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <img src="assets/checkmark.svg" alt="Checkmark" class="w-6 h-6 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                <span>Geen tijd of goesting hebben om zelf te adverteren</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <img src="assets/checkmark.svg" alt="Checkmark" class="w-6 h-6 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                <span>Resultaat willen zónder gepruts, zónder tijdverlies</span>
+              </li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Resultaten -->
-    <section class="w-full bg-neutral-900">
-      <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Resultaten die je kunt verwachten</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
-            <span class="text-3xl font-bold mb-2 block">5x</span>
-            <span class="text-white/80">Meer bereik</span>
-          </div>
-          <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
-            <span class="text-3xl font-bold mb-2 block">30u</span>
-            <span class="text-white/80">Bespaard per maand</span>
-          </div>
-          <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
-            <span class="text-3xl font-bold mb-2 block">+ Meer</span>
-            <span class="text-white/80">Leads</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Calendly Section -->
-    <section id="contact" class="w-full bg-black">
-      <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start">
-          <!-- Calendly CTA -->
-          <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 flex flex-col items-center gap-6 text-center backdrop-blur-md mb-8 md:mb-0">
-            <img src="assets/profilepic.jpg" alt="Ward Janssen" class="w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-white/10 shadow mb-2" />
-            <h2 class="text-2xl font-semibold mb-2">Plan een kennismaking met Ward</h2>
-            <p class="text-white/80 mb-4">Geen verplichtingen, gewoon een goed gesprek.</p>
-            <div class="w-full">
-              <iframe src="https://calendly.com/wardjanssen/kennismaking?hide_gdpr_banner=1" width="100%" height="400" frameborder="0" class="rounded-xl w-full" style="min-width:320px;" title="Plan een kennismaking"></iframe>
+      <!-- Pakketten -->
+      <section class="w-full bg-black">
+        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
+          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Onze pakketten</h2>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Paid Ads Pakket -->
+            <div class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition">
+              <h3 class="text-xl font-bold mb-2">Paid Ads Pakket</h3>
+              <ul class="mb-4 text-white/80 space-y-1">
+                <li>✔️ Volledige advertentie set-up</li>
+                <li>✔️ Maandelijkse optimalisatie</li>
+                <li>✔️ Rapportage & advies</li>
+              </ul>
+            </div>
+            <!-- Full Package -->
+            <div class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition">
+              <h3 class="text-xl font-bold mb-2">Full Package</h3>
+              <ul class="mb-4 text-white/80 space-y-1">
+                <li>✔️ Alles uit het Paid Ads Pakket</li>
+                <li>✔️ Creatie van content</li>
+                <li>✔️ Strategie & begeleiding</li>
+              </ul>
             </div>
           </div>
-          <!-- Contactformulier -->
-          <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md">
-            <h2 class="text-2xl font-semibold mb-4 text-center">Contact</h2>
-            <form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('modal').classList.remove('hidden');">
-              <input type="text" name="naam" placeholder="Naam" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
-              <input type="email" name="email" placeholder="E-mail" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
-              <textarea name="bericht" placeholder="Bericht" rows="4" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"></textarea>
-              <button type="submit" class="w-full px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Verstuur</button>
-            </form>
+        </div>
+      </section>
+
+      <!-- Resultaten -->
+      <section class="w-full bg-neutral-900">
+        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
+          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Resultaten die je kunt verwachten</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
+              <span class="text-3xl font-bold mb-2 block">5x</span>
+              <span class="text-white/80">Meer bereik</span>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
+              <span class="text-3xl font-bold mb-2 block">30u</span>
+              <span class="text-white/80">Bespaard per maand</span>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
+              <span class="text-3xl font-bold mb-2 block">+ Meer</span>
+              <span class="text-white/80">Leads</span>
+            </div>
           </div>
         </div>
-        <!-- Modal -->
-        <div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
-          <div class="bg-white/10 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 text-center max-w-sm mx-auto animate-fadeInUp">
-            <h3 class="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
-            <p class="text-white/80 mb-4">We nemen zo snel mogelijk contact met je op.</p>
-            <button onclick="document.getElementById('modal').classList.add('hidden');" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Sluiten</button>
+      </section>
+
+      <!-- Contact & Calendly Section -->
+      <section id="call" class="w-full bg-black">
+        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
+          <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+            <!-- Calendly CTA -->
+            <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 flex flex-col items-center gap-6 text-center backdrop-blur-md mb-8 md:mb-0">
+              <img src="assets/profilepic.jpg" alt="Ward Janssen" class="w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-white/10 shadow mb-2" />
+              <h2 class="text-2xl font-semibold mb-2">Plan een kennismaking met Ward</h2>
+              <p class="text-white/80 mb-4">Geen verplichtingen, gewoon een goed gesprek.</p>
+              <div class="w-full">
+                <iframe src="https://calendly.com/wardjanssen/kennismaking?hide_gdpr_banner=1" width="100%" height="400" frameborder="0" class="rounded-xl w-full" style="min-width:320px;" title="Plan een kennismaking"></iframe>
+              </div>
+            </div>
+            <!-- Contactformulier -->
+            <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md">
+              <h2 class="text-2xl font-semibold mb-4 text-center">Contact</h2>
+              <form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('modal').classList.remove('hidden');">
+                <input type="text" name="naam" placeholder="Naam" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
+                <input type="email" name="email" placeholder="E-mail" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
+                <textarea name="bericht" placeholder="Bericht" rows="4" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"></textarea>
+                <button type="submit" class="w-full px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Verstuur</button>
+              </form>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+            <div class="bg-white/10 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 text-center max-w-sm mx-auto animate-fadeInUp">
+              <h3 class="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
+              <p class="text-white/80 mb-4">We nemen zo snel mogelijk contact met je op.</p>
+              <button onclick="document.getElementById('modal').classList.add('hidden');" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Sluiten</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer class="container mx-auto px-4 py-8 text-center text-white/60 animate-fadeInUp">
