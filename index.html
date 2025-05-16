@@ -83,22 +83,23 @@
 
       <!-- Pakketten -->
       <section class="w-full bg-black">
-        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Onze pakketten</h2>
+        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp" x-data="packageSelector">
+          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Onze pakketten</h2>
+          <p class="text-white/80 text-center mb-10">Duid het pakket aan die bij jouw past</p>
           <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <!-- Paid Ads Pakket -->
-            <div class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition">
+            <div id="paid-ads" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option active" data-package="paid-ads" @click="updateActivePackage('paid-ads')">
               <h3 class="text-xl font-bold mb-2">Paid Ads Pakket</h3>
-              <ul class="mb-4 text-white/80 space-y-1">
+              <ul class="mb-4 space-y-1 package-list">
                 <li>✔️ Volledige advertentie set-up</li>
                 <li>✔️ Maandelijkse optimalisatie</li>
                 <li>✔️ Rapportage & advies</li>
               </ul>
             </div>
             <!-- Full Package -->
-            <div class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition">
+            <div id="full-package" class="bg-white/5 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option" data-package="full-package" @click="updateActivePackage('full-package')">
               <h3 class="text-xl font-bold mb-2">Full Package</h3>
-              <ul class="mb-4 text-white/80 space-y-1">
+              <ul class="mb-4 space-y-1 package-list">
                 <li>✔️ Alles uit het Paid Ads Pakket</li>
                 <li>✔️ Creatie van content</li>
                 <li>✔️ Strategie & begeleiding</li>
@@ -111,19 +112,72 @@
       <!-- Resultaten -->
       <section class="w-full bg-neutral-900">
         <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp">
-          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Resultaten die je kunt verwachten</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
-              <span class="text-3xl font-bold mb-2 block">5x</span>
-              <span class="text-white/80">Meer bereik</span>
+          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Resultaten die je kunt verwachten</h2>
+          <p class="text-white/80 text-center mb-10" x-text="activePackage === 'paid-ads' ? 'met het Paid Ads Pakket' : 'met het Full Package'"></p>
+          <div class="max-w-4xl mx-auto">
+            <!-- Paid Ads Results -->
+            <div id="paid-ads-results" class="results-content active">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">🎯</span>
+                    <p class="text-white/90">Professionele advertenties zonder zorgen</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">🧠</span>
+                    <p class="text-white/90">Strategie & creatie perfect afgestemd op je doelgroep</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">⏱️</span>
+                    <p class="text-white/90">Gemiddeld 30+ uur/maand uitgespaard aan marketingtaken</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">📈</span>
+                    <p class="text-white/90">Meer bereik via slimme optimalisatie van Meta campagnes</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
-              <span class="text-3xl font-bold mb-2 block">30u</span>
-              <span class="text-white/80">Bespaard per maand</span>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-6 text-center shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 hover:shadow-white/20 transition">
-              <span class="text-3xl font-bold mb-2 block">+ Meer</span>
-              <span class="text-white/80">Leads</span>
+            <!-- Full Package Results -->
+            <div id="full-package-results" class="results-content hidden">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">✅</span>
+                    <p class="text-white/90">Alles uit het Paid Ads Pakket</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">🧲</span>
+                    <p class="text-white/90">Consistente social media posts voor top-of-mind merkherkenning</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">🧵</span>
+                    <p class="text-white/90">Volledige contentkalender & paginabeheer – geen stress meer</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">🔁</span>
+                    <p class="text-white/90">Ads & content worden slim gerepürposed over alle kanalen</p>
+                  </div>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 md:col-span-2">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">🧑‍💼</span>
+                    <p class="text-white/90">Meer sollicitaties & leads dankzij een sterke, constante online aanwezigheid</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -169,5 +223,81 @@
     <footer class="container mx-auto px-4 py-8 text-center text-white/60 animate-fadeInUp">
       <p>&copy; 2024 ARC Agency. Alle rechten voorbehouden.</p>
     </footer>
+
+    <!-- Add Alpine.js for interactivity -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('packageSelector', () => ({
+          activePackage: 'paid-ads',
+          init() {
+            // Set initial state
+            this.updateActivePackage('paid-ads');
+          },
+          updateActivePackage(packageId) {
+            // Update active package
+            this.activePackage = packageId;
+            
+            // Update package cards
+            document.querySelectorAll('.package-option').forEach(card => {
+              if (card.dataset.package === packageId) {
+                card.classList.add('active');
+                card.classList.remove('bg-white/5');
+                card.classList.add('bg-white');
+                card.classList.remove('text-white/80');
+                card.classList.add('text-black');
+                card.classList.remove('shadow-white/10');
+                card.classList.add('shadow-black/10');
+                // Update list text color
+                card.querySelector('.package-list').classList.remove('text-white/80');
+                card.querySelector('.package-list').classList.add('text-black/80');
+              } else {
+                card.classList.remove('active');
+                card.classList.add('bg-white/5');
+                card.classList.remove('bg-white');
+                card.classList.add('text-white/80');
+                card.classList.remove('text-black');
+                card.classList.add('shadow-white/10');
+                card.classList.remove('shadow-black/10');
+                // Update list text color
+                card.querySelector('.package-list').classList.add('text-white/80');
+                card.querySelector('.package-list').classList.remove('text-black/80');
+              }
+            });
+
+            // Update results content with animation
+            const results = document.querySelectorAll('.results-content');
+            results.forEach(result => {
+              if (result.id === `${packageId}-results`) {
+                result.classList.remove('hidden');
+                result.classList.add('animate-fadeIn');
+              } else {
+                result.classList.add('hidden');
+                result.classList.remove('animate-fadeIn');
+              }
+            });
+          }
+        }));
+      });
+    </script>
+
+    <style>
+      .package-option {
+        transition: all 0.3s ease;
+      }
+      .package-option.active {
+        transform: scale(1.02);
+      }
+      .results-content {
+        transition: opacity 0.3s ease;
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
   </body>
 </html> 
