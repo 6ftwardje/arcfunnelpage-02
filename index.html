@@ -82,8 +82,9 @@
       </section>
 
       <!-- Pakketten -->
-      <section class="w-full bg-black">
-        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp" x-data="packageSelector">
+      <section class="w-full bg-black relative overflow-hidden">
+        <div class="light-effect absolute inset-0 pointer-events-none"></div>
+        <div class="container mx-auto px-4 py-12 md:py-20 animate-fadeInUp relative z-10" x-data="packageSelector">
           <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Onze pakketten</h2>
           <p class="text-white/80 text-center mb-10">Duid het pakket aan die bij jouw past</p>
           <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -268,6 +269,16 @@
             // Update active package
             this.activePackage = packageId;
             
+            // Update light effect
+            const lightEffect = document.querySelector('.light-effect');
+            lightEffect.classList.remove('light-left', 'light-right');
+            if (packageId === 'paid-ads') {
+              lightEffect.classList.add('light-left');
+            } else {
+              lightEffect.classList.add('light-right');
+            }
+            lightEffect.classList.add('active');
+            
             // Update package cards
             document.querySelectorAll('.package-option').forEach(card => {
               if (card.dataset.package === packageId) {
@@ -337,6 +348,36 @@
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Light effect styles */
+      .light-effect {
+        opacity: 0;
+        transition: all 0.8s ease;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.04) 25%,
+          rgba(255, 255, 255, 0.07) 50%,
+          rgba(255, 255, 255, 0.04) 75%,
+          transparent 100%
+        );
+        background-size: 200% 100%;
+        mix-blend-mode: screen;
+        filter: blur(12px);
+        background-position: 0% 0;
+      }
+
+      .light-effect.active {
+        opacity: 1;
+      }
+
+      .light-effect.light-left {
+        background-position: 100% 0;
+      }
+
+      .light-effect.light-right {
+        background-position: 0% 0;
       }
     </style>
   </body>
