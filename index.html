@@ -220,9 +220,9 @@
         <!-- Contact & Calendly Section -->
         <section id="call" class="w-full bg-black">
           <div class="container mx-auto px-4 md:px-6 py-12 md:py-20 animate-fadeInUp">
-            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-stretch">
               <!-- Calendly CTA -->
-              <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 flex flex-col items-center gap-6 text-center backdrop-blur-md mb-8 md:mb-0">
+              <div class="w-full md:flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 flex flex-col items-center gap-6 text-center backdrop-blur-md">
                 <img src="assets/profilepic.jpg" alt="Ward Janssen" class="w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-white/10 shadow mb-2" />
                 <h2 class="text-2xl font-semibold mb-2">Plan je strategiegesprek</h2>
                 <p class="text-white/80 mb-4">Kies een moment dat voor jou past. Geen gedoe, gewoon concreet advies.</p>
@@ -234,26 +234,39 @@
                 </div>
               </div>
               <!-- Contactformulier -->
-              <div class="flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md">
+              <div class="w-full md:flex-1 bg-white/5 rounded-2xl shadow-lg shadow-white/10 ring-1 ring-white/10 p-8 md:p-12 backdrop-blur-md">
                 <h2 class="text-2xl font-semibold mb-4 text-center">Contact</h2>
-                <form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('modal').classList.remove('hidden');">
-                  <input type="text" name="naam" placeholder="Naam" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
-                  <input type="email" name="email" placeholder="E-mail" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
-                  <textarea name="bericht" placeholder="Bericht" rows="4" required class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"></textarea>
-                  <button type="submit" class="w-full px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Verstuur</button>
+                <form
+                  id="contactForm"
+                  action="https://formspree.io/f/xnndwojd"
+                  method="POST"
+                  class="space-y-4"
+                >
+                  <label class="block text-sm font-medium text-white/70">
+                    Jouw e-mailadres:
+                    <input type="email" name="email" required class="mt-1 w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20" />
+                  </label>
+                  <label class="block text-sm font-medium text-white/70">
+                    Jouw bericht:
+                    <textarea name="message" rows="4" required class="mt-1 w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"></textarea>
+                  </label>
+                  <button type="submit" class="w-full px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">
+                    Verstuur
+                  </button>
                 </form>
-              </div>
-            </div>
-            <!-- Modal -->
-            <div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
-              <div class="bg-white/10 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 text-center max-w-sm mx-auto animate-fadeInUp">
-                <h3 class="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
-                <p class="text-white/80 mb-4">We nemen zo snel mogelijk contact met je op.</p>
-                <button onclick="document.getElementById('modal').classList.add('hidden');" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Sluiten</button>
               </div>
             </div>
           </div>
         </section>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+      <div class="bg-white/10 rounded-2xl p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 text-center max-w-sm mx-auto animate-fadeInUp">
+        <h3 class="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
+        <p class="text-white/80 mb-4">We nemen binnen 24 uur contact met je op.</p>
+        <button onclick="document.getElementById('confirmationModal').classList.add('hidden');" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 ring-2 ring-white/10 shadow-lg shadow-white/10 transition hover:scale-105 font-semibold">Sluiten</button>
       </div>
     </div>
 
@@ -299,6 +312,45 @@
     <!-- Add Alpine.js for interactivity -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <script>
+      // Form submission handling
+      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        
+        try {
+          // Disable button and show loading state
+          submitButton.disabled = true;
+          submitButton.textContent = 'Versturen...';
+          
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Show success modal
+            document.getElementById('confirmationModal').classList.remove('hidden');
+            // Reset form
+            form.reset();
+          } else {
+            throw new Error('Er is iets misgegaan bij het versturen van het formulier.');
+          }
+        } catch (error) {
+          alert('Er is iets misgegaan bij het versturen van het formulier. Probeer het later opnieuw.');
+        } finally {
+          // Reset button state
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+
       document.addEventListener('alpine:init', () => {
         Alpine.data('packageSelector', () => ({
           activePackage: 'paid-ads',
