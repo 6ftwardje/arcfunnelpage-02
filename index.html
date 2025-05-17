@@ -410,13 +410,22 @@
 
       /* Light effect styles */
       .light-effect {
-        opacity: 0;
-        transition: all 0.8s ease;
-        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.07) 50%, rgba(255, 255, 255, 0.04) 75%, transparent 100%);
+        will-change: transform, opacity;
+        transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s;
+        opacity: 1;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        /* Eenvoudige horizontale gradient, geen blur */
+        background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 50%, transparent 100%);
         background-size: 200% 100%;
-        mix-blend-mode: screen;
-        filter: blur(12px);
-        background-position: 0% 0;
+      }
+      .light-left {
+        transform: translateX(-40%);
+      }
+      .light-right {
+        transform: translateX(40%);
       }
 
       .light-effect.active {
