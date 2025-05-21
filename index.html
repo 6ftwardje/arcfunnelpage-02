@@ -68,6 +68,7 @@
             <img 
               src="assets/illustration-table.png" 
               alt="ARC strategie illustratie" 
+              id="illustration-table"
               class="w-full max-w-md drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] brightness-110" 
             />
             <div class="flex-1 text-center md:text-left">
@@ -350,6 +351,22 @@
           submitButton.textContent = originalButtonText;
         }
       });
+
+      // Handle illustration table visibility
+      function handleIllustrationVisibility() {
+        const illustration = document.getElementById('illustration-table');
+        if (window.innerWidth < 768) { // 768px is the md breakpoint in Tailwind
+          illustration.style.display = 'none';
+        } else {
+          illustration.style.display = 'block';
+        }
+      }
+
+      // Initial check
+      handleIllustrationVisibility();
+
+      // Add resize listener
+      window.addEventListener('resize', handleIllustrationVisibility);
 
       document.addEventListener('alpine:init', () => {
         Alpine.data('packageSelector', () => ({
