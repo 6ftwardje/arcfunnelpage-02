@@ -29,6 +29,26 @@
     </script>
     <style>
       body { font-family: 'Inter', sans-serif; }
+
+      /* Remove glowPulse animation and related styles */
+      .result-card {
+        will-change: box-shadow;
+      }
+
+      /* Remove animation delays */
+      .result-card:nth-child(1) { }
+      .result-card:nth-child(2) { }
+      .result-card:nth-child(3) { }
+      .result-card:nth-child(4) { }
+      .result-card:nth-child(5) { }
+
+      /* Ensure smooth transitions when switching packages */
+      .results-content {
+        transition: opacity 0.3s ease;
+      }
+      .results-content.hidden {
+        display: none;
+      }
     </style>
   </head>
   <body class="bg-black text-white font-inter">
@@ -97,28 +117,26 @@
               <!-- Paid Ads Pakket -->
               <div id="paid-ads" class="bg-white/5 rounded-2xl p-4 md:p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option active" data-package="paid-ads" @click="updateActivePackage('paid-ads')">
                 <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Paid Ads Pakket</h3>
+                <p class="text-sm md:text-base text-white/80 mb-4">Voor bedrijven die extra resultaat willen via advertenties.</p>
                 <ul class="package-list space-y-1 md:space-y-2">
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                    <span class="text-xs md:text-base">Voor bedrijven die al actief zijn op social media</span>
+                    <span class="text-xs md:text-base">Je wil snel veel ogen op je product of vacature</span>
                   </li>
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                    <span class="text-xs md:text-base">Je wil meer resultaat uit je huidige bereik</span>
+                    <span class="text-xs md:text-base">Je wil ontzorgd worden in visuals, scripts, ads & optimalisatie</span>
                   </li>
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                     <span class="text-xs md:text-base">Je hebt geen tijd of kennis voor advertenties</span>
                   </li>
-                  <li class="flex items-start gap-2 md:gap-3">
-                    <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                    <span class="text-xs md:text-base">Je wil ontzorgd worden in targeting, visuals en optimalisatie</span>
-                  </li>
                 </ul>
               </div>
-              <!-- Full Package -->
+              <!-- Content Package -->
               <div id="full-package" class="bg-white/5 rounded-2xl p-4 md:p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option" data-package="full-package" @click="updateActivePackage('full-package')">
-                <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Full Package</h3>
+                <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Content Package</h3>
+                <p class="text-sm md:text-base text-white/80 mb-4">Voor bedrijven die willen groeien via organische zichtbaarheid.</p>
                 <ul class="package-list space-y-1 md:space-y-2">
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
@@ -126,15 +144,15 @@
                   </li>
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                    <span class="text-xs md:text-base">Je wil een sterke aanwezigheid op social media</span>
+                    <span class="text-xs md:text-base">Je wil een consistente stroom aan waardevolle content</span>
                   </li>
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                    <span class="text-xs md:text-base">Je zoekt consistente, professionele content</span>
+                    <span class="text-xs md:text-base">Je zoekt professionele video's die bereik en vertrouwen opbouwen</span>
                   </li>
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-                    <span class="text-xs md:text-base">Je wil advertenties én content die naadloos samenwerken</span>
+                    <span class="text-xs md:text-base">Je wil organische groei op LinkedIn, Instagram, TikTok…</span>
                   </li>
                   <li class="flex items-start gap-2 md:gap-3">
                     <img src="assets/checkmark.svg" alt="Checkmark" class="w-4 h-4 md:w-5 md:h-5 mt-1 filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
@@ -148,30 +166,30 @@
         <!-- Resultaten -->
         <section class="w-full bg-neutral-900">
           <div class="container mx-auto px-4 md:px-6 py-12 md:py-20 animate-fadeInUp">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10" x-text="'Resultaten die je kunt verwachten met de ' + (activePackage === 'paid-ads' ? 'Paid Ads Pakket' : 'Full Package')"></h2>
+            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10" x-text="'Resultaten die je kunt verwachten met de ' + (activePackage === 'paid-ads' ? 'Paid Ads Pakket' : 'Content Package')"></h2>
             <div class="max-w-4xl mx-auto">
               <!-- Paid Ads Results -->
               <div id="paid-ads-results" class="results-content active">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/advertising.png" alt="Professionele advertenties" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
                       <p class="text-white/90">Professionele advertenties zonder zorgen</p>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/strategy.png" alt="Strategie & creatie" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
                       <p class="text-white/90">Strategie & creatie perfect afgestemd op je doelgroep</p>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/time.png" alt="Tijdswinst" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
                       <p class="text-white/90">Gemiddeld 30+ uur/maand uitgespaard aan marketingtaken</p>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/optimise.png" alt="Optimalisatie" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
                       <p class="text-white/90">Meer bereik via slimme optimalisatie van Meta campagnes</p>
@@ -182,34 +200,28 @@
               <!-- Full Package Results -->
               <div id="full-package-results" class="results-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
-                    <div class="flex items-start gap-3">
-                      <img src="assets/checkmark.svg" alt="Alles uit Paid Ads" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Alles uit het Paid Ads Pakket</p>
-                    </div>
-                  </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/brain.png" alt="Merkherkenning" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Consistente social media posts voor top-of-mind merkherkenning</p>
+                      <p class="text-white/90">Consistente video content zorgt voor top-of-mind merkherkenning</p>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/Calendar.png" alt="Contentkalender" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Volledige contentkalender & paginabeheer – geen stress meer</p>
+                      <p class="text-white/90">Geen stress meer: wij beheren je socials & contentkalender</p>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
                       <img src="assets/recycle.png" alt="Repurposing" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Ads & content worden slim gerepürposed over alle kanalen</p>
+                      <p class="text-white/90">Eén video = repurposing voor Instagram, LinkedIn, TikTok, YouTube Shorts</p>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 md:col-span-2">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
                     <div class="flex items-start gap-3">
-                      <img src="assets/leads.png" alt="Leads & sollicitaties" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Meer sollicitaties & leads dankzij een sterke, constante online aanwezigheid</p>
+                      <img src="assets/leads.png" alt="Groei" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
+                      <p class="text-white/90">Groei in volgers, bereik, sollicitaties en leads via organische zichtbaarheid</p>
                     </div>
                   </div>
                 </div>
@@ -379,7 +391,6 @@
             this.activePackage = packageId;
             const lightEffect = document.querySelector('.light-effect');
             lightEffect.classList.remove('light-left', 'light-right', 'light-top', 'light-bottom', 'light-effect-vertical');
-            // Altijd horizontaal, ook op mobile
             if (packageId === 'paid-ads') {
               lightEffect.classList.add('light-left');
             } else {
@@ -405,6 +416,11 @@
                   img.classList.remove('filter', 'brightness-0', 'invert');
                   img.classList.add('filter', 'brightness-0');
                 });
+                // Update description text color
+                card.querySelectorAll('p').forEach(p => {
+                  p.classList.remove('text-white/80');
+                  p.classList.add('text-black/80');
+                });
               } else {
                 card.classList.remove('active');
                 card.classList.add('bg-white/5');
@@ -420,6 +436,11 @@
                 card.querySelectorAll('img').forEach(img => {
                   img.classList.add('filter', 'brightness-0', 'invert');
                   img.classList.remove('filter', 'brightness-0');
+                });
+                // Update description text color
+                card.querySelectorAll('p').forEach(p => {
+                  p.classList.add('text-white/80');
+                  p.classList.remove('text-black/80');
                 });
               }
             });
@@ -446,9 +467,6 @@
       }
       .package-option.active {
         transform: scale(1.02);
-      }
-      .results-content {
-        transition: opacity 0.3s ease;
       }
       .animate-fadeIn {
         animation: fadeIn 0.3s ease-in-out;
