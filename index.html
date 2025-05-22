@@ -105,6 +105,56 @@
         </div>
       </section>
 
+      <!-- Stats Section -->
+      <section class="w-full bg-black relative overflow-hidden">
+        <div class="light-effect absolute inset-0 pointer-events-none"></div>
+        <div class="container mx-auto px-4 md:px-6 py-16 md:py-24">
+          <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-semibold mb-4">Wat je mag verwachten van onze aanpak</h2>
+            <p class="text-white/80 text-lg">Resultaatgedreven marketing die zichtbaar en meetbaar werkt.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <!-- Stat Card 1 -->
+            <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 transition-all duration-300 animate-fadeInUp">
+              <div class="flex items-start gap-3">
+                <img src="animations/bereik.gif" alt="Bereik" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
+                <div>
+                  <p class="text-white/90 font-semibold">Gemiddeld 3x tot 5x meer bereik in 90 dagen</p>
+                  <p class="text-white/60 text-sm mt-1">Dankzij sterke hooks, visuals & gerichte targeting.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stat Card 2 -->
+            <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 transition-all duration-300 animate-fadeInUp" style="animation-delay: 100ms;">
+              <div class="flex items-start gap-3">
+                <img src="animations/tijd.gif" alt="Tijdswinst" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
+                <div>
+                  <p class="text-white/90 font-semibold">30+ uur/maand uitgespaard aan marketingtaken</p>
+                  <p class="text-white/60 text-sm mt-1">Wij doen alles van strategie tot uitvoering.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stat Card 3 -->
+            <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 hover:scale-105 transition-all duration-300 animate-fadeInUp" style="animation-delay: 200ms;">
+              <div class="flex items-start gap-3">
+                <img src="animations/resultaat.gif" alt="Resultaat" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
+                <div>
+                  <p class="text-white/90 font-semibold">Binnen 4 weken zichtbaar resultaat</p>
+                  <p class="text-white/60 text-sm mt-1">Meer engagement, meer clicks, meer sollicitaties.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <p class="text-white/80 text-lg italic">Wil jij ook meer resultaat uit je marketing? Scroll naar beneden en kies het pakket dat bij je past.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- Pakketten + Resultaten samen in Alpine.js scope -->
       <div x-data="packageSelector">
         <!-- Pakketten -->
@@ -116,7 +166,7 @@
             <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
               <!-- Paid Ads Pakket -->
               <div id="paid-ads" class="bg-white/5 rounded-2xl p-4 md:p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option active" data-package="paid-ads" @click="updateActivePackage('paid-ads')">
-                <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Paid Ads Pakket</h3>
+                <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Performance Package</h3>
                 <p class="text-sm md:text-base text-white/80 mb-4">Voor bedrijven die extra resultaat willen via advertenties.</p>
                 <ul class="package-list space-y-1 md:space-y-2">
                   <li class="flex items-start gap-2 md:gap-3">
@@ -135,7 +185,7 @@
               </div>
               <!-- Content Package -->
               <div id="full-package" class="bg-white/5 rounded-2xl p-4 md:p-8 shadow-lg shadow-white/10 ring-1 ring-white/10 flex flex-col items-start hover:scale-105 hover:shadow-white/20 transition cursor-pointer package-option" data-package="full-package" @click="updateActivePackage('full-package')">
-                <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Content Package</h3>
+                <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4">Visibility Package</h3>
                 <p class="text-sm md:text-base text-white/80 mb-4">Voor bedrijven die willen groeien via organische zichtbaarheid.</p>
                 <ul class="package-list space-y-1 md:space-y-2">
                   <li class="flex items-start gap-2 md:gap-3">
@@ -171,57 +221,81 @@
               <!-- Paid Ads Results -->
               <div id="paid-ads-results" class="results-content active">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/advertising.png" alt="Professionele advertenties" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Professionele advertenties zonder zorgen</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Professionele advertenties zonder zorgen</p>
+                        <p class="text-white/60 text-sm mt-1">Wij zorgen voor creatie, targeting en optimalisatie van je campagnes.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/strategy.png" alt="Strategie & creatie" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Strategie & creatie perfect afgestemd op je doelgroep</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Strategie & creatie perfect afgestemd</p>
+                        <p class="text-white/60 text-sm mt-1">Content die je doelgroep aanspreekt en tot actie aanzet.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/time.png" alt="Tijdswinst" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Gemiddeld 30+ uur/maand uitgespaard aan marketingtaken</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">30+ uur/maand uitgespaard</p>
+                        <p class="text-white/60 text-sm mt-1">Wij nemen alle marketingtaken uit handen zodat jij kunt focussen op je zaak.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/optimise.png" alt="Optimalisatie" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Meer bereik via slimme optimalisatie van Meta campagnes</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Slimme optimalisatie van Meta campagnes</p>
+                        <p class="text-white/60 text-sm mt-1">Constante verbetering voor maximale ROI op je advertentiebudget.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- Full Package Results -->
+              <!-- Content Package Results -->
               <div id="full-package-results" class="results-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/brain.png" alt="Merkherkenning" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Consistente video content zorgt voor top-of-mind merkherkenning</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Top-of-mind merkherkenning</p>
+                        <p class="text-white/60 text-sm mt-1">Consistente video content zorgt voor herkenning en vertrouwen.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/Calendar.png" alt="Contentkalender" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Geen stress meer: wij beheren je socials & contentkalender</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Een strakke contentkalender</p>
+                        <p class="text-white/60 text-sm mt-1">Wij zorgen voor consistente videocontent op je socials.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/recycle.png" alt="Repurposing" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Eén video = repurposing voor Instagram, LinkedIn, TikTok, YouTube Shorts</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Maximaal rendement per video</p>
+                        <p class="text-white/60 text-sm mt-1">Eén video = repurposing voor Instagram, LinkedIn, TikTok, YouTube Shorts.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card">
+                  <div class="bg-white/5 rounded-2xl p-6 shadow-lg shadow-white/10 ring-1 ring-white/10 result-card hover:scale-105 transition-all duration-300">
                     <div class="flex items-start gap-3">
                       <img src="assets/leads.png" alt="Groei" class="w-6 h-6 md:w-7 md:h-7 mt-0.5 filter invert brightness-200" />
-                      <p class="text-white/90">Groei in volgers, bereik, sollicitaties en leads via organische zichtbaarheid</p>
+                      <div>
+                        <p class="text-white/90 font-semibold">Organische groei in zichtbaarheid</p>
+                        <p class="text-white/60 text-sm mt-1">Meer volgers, bereik, sollicitaties en leads via organische kanalen.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
